@@ -1,6 +1,7 @@
 package org.example.concurrency;
 
 import org.example.concurrency.thread.CustomThread;
+import org.example.concurrency.thread.ForkJoinTaskImpl;
 import org.example.concurrency.thread.Runability;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -35,9 +36,16 @@ public class ConcurrencyDemo {
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
+        }
 
+        @DisplayName("ForkJoin")
+        @Test
+        void forkJoinPool() throws ExecutionException, InterruptedException {
             //Fork/Join方式
-
+            ForkJoinTaskImpl task = new ForkJoinTaskImpl();
+            ForkJoinTask<Integer> fork = task.fork();
+            Integer integer = fork.join();
+            System.out.println(integer);
 
         }
 
