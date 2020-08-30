@@ -129,7 +129,6 @@ public class CompletableFutureTest {
         completableFuture.thenRun(runnable2);
         completableFuture.join();
 
-        completableFuture.acceptEither()
     }
 
 }
